@@ -1,0 +1,57 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools"]
+
+[project]
+name = "geoprune"
+version = "0.0.0"
+
+[project.scripts]
+geoprune = "snakesay.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.ruff.lint]
+exclude = ["*.development*", "*stubs*"]
+
+ignore = [
+  "D212", #Docstrings can have a line with just """
+  "PLR0913", # More than 5 args
+  "PLR2004", # Allow [Magic Numbers](https://en.wikipedia.org/wiki/Magic_number_(programming))
+  "ANN401", # Allow use of the `Any` type
+  "ANN101", # Don't require type annotations for `self`
+  "ANN102", # Don't require type annotations for `cls`
+  "PLC0105", # If a typevar is configured to indicate a class or any subclasses  # (e.g: covariant==True), don't require its name to end in the `_co`   # suffix.
+]
+select = [
+  # https://docs.astral.sh/ruff/rules
+  # "D", # Pydocstyle - docstrings must be well-formatted
+  "B", # Flake8 Bugbear - catches random bugs
+  "F",
+  "G", # Logging
+  "I", # Sort imports
+  "N", # Pep8 Naming rules - things like CamelCase vs snake_case
+  "S", # Security / flake8 bandit
+  "PL", #Pylint
+  "UP", # Pyupgrade - encourages newer syntax when availible
+  "ANN", # Type annotations
+  "CPY001", #Copyright notice
+  "PLE", #Pylint - Errors
+  "PTH", # Prefer Pathlib
+  "RUF", #Ruff specific errors
+  "SIM", # Simplify expressions
+  "FURB", # 'Refurb' linter
+  "PERF", #Performance pitfalls
+  "ASYNC", #flake8 async
+  "D213",
+  "W505",
+  "W291",
+  "W605", #invalid escape sequence
+  "E722", # don't use bare except
+  "F401", # remove unused imports
+  # "PLC0415", #import not at top of file
+]
+
+[tool.black]
+exclude = ".*development.*|.*stubs.*"
