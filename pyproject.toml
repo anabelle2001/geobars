@@ -3,7 +3,11 @@ build-backend = "setuptools.build_meta"
 requires = ["setuptools"]
 
 [project]
-name = "geoprune"
+authors = [
+  {name = "Anabelle VanDenburgh", email = "git@anabelle.dev"},
+]
+description = "Backup Rotation scheme inspired by Geometric Sequence"
+name = "Geobars"
 version = "0.0.0"
 
 [project.scripts]

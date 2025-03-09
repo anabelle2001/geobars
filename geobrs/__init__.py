@@ -1,7 +1,8 @@
+# SPDX-License-Identifier: MPL-2.0
+
 import itertools
 import subprocess
 from collections.abc import Iterator, Sequence
-from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Callable, TypeVar
 
@@ -16,7 +17,7 @@ def du(p: Path, depth: int = 1) -> dict[Path, int]:
 
     res = [
         line.split(maxsplit=1)
-        for line in subprocess.check_output(
+        for line in subprocess.check_output(  # noqa: S603
             ["/usr/bin/du", "--bytes", f"-d{depth}", str(p)], shell=False
         )
         .decode("utf-8")
