@@ -6,12 +6,13 @@ requires = ["setuptools"]
 authors = [
   {name = "Anabelle VanDenburgh", email = "git@anabelle.dev"},
 ]
+dependencies = ["pytimeparse>=1.1.8"]
 description = "Backup Rotation scheme inspired by Geometric Sequence"
-name = "Geobars"
+name = "geobrs"
 version = "0.0.0"
 
 [project.scripts]
-geoprune = "snakesay.__main__:main"
+geoprune = "geobrs.__init__:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
